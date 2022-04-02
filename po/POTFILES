@@ -1,0 +1,7 @@
+data/io.github.diegoivan.internalassesment.desktop.in
+data/io.github.diegoivan.internalassesment.appdata.xml.in
+data/io.github.diegoivan.internalassesment.gschema.xml
+src/window.ui
+src/main.vala
+src/window.vala
+

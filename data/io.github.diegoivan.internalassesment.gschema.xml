@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="internal-assesment">
+	<schema id="io.github.diegoivan.internalassesment" path="/io/github/diegoivan/internalassesment/">
+	</schema>
+</schemalist>

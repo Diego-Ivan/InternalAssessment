@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/io/github/diegoivan/internalassesment">
+    <file>window.ui</file>
+    <file preprocess="xml-stripblanks">icons/penguin-alt-symbolic.svg</file>
+  </gresource>
+
+  <gresource prefix="/io/github/diegoivan/internalassesment/icons/scalable/emblems">
+  </gresource>
+</gresources>

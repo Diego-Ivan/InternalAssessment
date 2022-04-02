@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="InternalAssesmentWindow" parent="GtkApplicationWindow">
+    <property name="title">Internal Assessment</property>
+    <property name="default-width">480</property>
+    <property name="default-height">670</property>
+
+    <child type="titlebar">
+      <object class="GtkHeaderBar" id="header_bar">
+        <child type="end">
+          <object class="GtkMenuButton">
+            <property name="icon-name">open-menu-symbolic</property>
+            <property name="menu-model">primary_menu</property>
+          </object>
+        </child>
+      </object>
+    </child>
+
+    <child>
+      <object class="AdwStatusPage">
+        <property name="title">Test the Adwaita Animation API</property>
+        <property name="icon-name">org.gnome.Adwaita1.Demo-symbolic</property>
+
+        <property name="child">
+          <object class="AdwClamp">
+            <property name="child">
+
+              <object class="GtkBox">
+                <property name="orientation">vertical</property>
+                <property name="spacing">12</property>
+
+                <child>
+                  <object class="GtkProgressBar" id="level_bar">
+                  </object>
+                </child>
+
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <child>
+                      <object class="AdwComboRow" id="animation_row">
+                        <property name="title">Easing Type</property>
+                        <property name="model">
+                          <object class="AdwEnumListModel" id="enum_model">
+                            <property name="enum-type">AdwEasing</property>
+                          </object>
+                        </property>
+                        <property name="expression">
+                          <lookup type="AdwEnumListItem" name="nick"/>
+                        </property>
+                      </object>
+                    </child>
+
+                    <child>
+                      <object class="AdwActionRow">
+                        <property name="title">Duration</property>
+
+                        <child type="suffix">
+                          <object class="GtkSpinButton" id="duration">
+                            <property name="valign">center</property>
+                            <property name="value">2</property>
+
+                            <property name="adjustment">
+                              <object class="GtkAdjustment">
+                                <property name="value">2</property>
+                                <property name="lower">2</property>
+                                <property name="upper">20</property>
+                                <property name="step-increment">1</property>
+                                <property name="page-increment">5</property>
+                              </object>
+                            </property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+
+                <child>
+                  <object class="GtkButton" id="run_button">
+                    <style>
+                      <class name="pill"/>
+                      <class name="suggested-action"/>
+                    </style>
+                    <property name="label">Run Test</property>
+                    <signal name="clicked" handler="on_run_button_clicked" swapped="no"/>
+                  </object>
+                </child>
+
+              </object>
+            </property>
+          </object>
+        </property>
+      </object>
+    </child>
+
+  </template>
+
+  <menu id="primary_menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_About Internal Assessment</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+    </section>
+  </menu>
+</interface>
