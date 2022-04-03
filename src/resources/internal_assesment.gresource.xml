@@ -2,6 +2,7 @@
 <gresources>
   <gresource prefix="/io/github/diegoivan/internalassesment">
     <file>window.ui</file>
+    <file>recordlist.ui</file>
     <file preprocess="xml-stripblanks">icons/penguin-alt-symbolic.svg</file>
   </gresource>
 

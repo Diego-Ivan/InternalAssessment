@@ -8,6 +8,13 @@
 
     <child type="titlebar">
       <object class="GtkHeaderBar" id="header_bar">
+        
+        <property name="title-widget">
+          <object class="AdwViewSwitcher">
+            <property name="stack">main_stack</property>
+          </object>
+        </property>
+        
         <child type="end">
           <object class="GtkMenuButton">
             <property name="icon-name">open-menu-symbolic</property>
@@ -18,79 +25,104 @@
     </child>
 
     <child>
-      <object class="AdwStatusPage">
-        <property name="title">Test the Adwaita Animation API</property>
-        <property name="icon-name">org.gnome.Adwaita1.Demo-symbolic</property>
-
-        <property name="child">
-          <object class="AdwClamp">
+      <object class="AdwViewStack" id="main_stack">
+        <child>
+          <object class="AdwViewStackPage">
+            <property name="title">Testing</property>
+            <property name="name">testing</property>
+            <property name="icon-name">org.gnome.Adwaita1.Demo-symbolic</property>
+            
             <property name="child">
+              <object class="AdwStatusPage">
+                <property name="title">Test the Adwaita Animation API</property>
+                <property name="icon-name">org.gnome.Adwaita1.Demo-symbolic</property>
 
-              <object class="GtkBox">
-                <property name="orientation">vertical</property>
-                <property name="spacing">12</property>
+                <property name="child">
+                  <object class="AdwClamp">
+                    <property name="child">
 
-                <child>
-                  <object class="GtkProgressBar" id="level_bar">
-                  </object>
-                </child>
+                      <object class="GtkBox">
+                        <property name="orientation">vertical</property>
+                        <property name="spacing">12</property>
 
-                <child>
-                  <object class="AdwPreferencesGroup">
-                    <child>
-                      <object class="AdwComboRow" id="animation_row">
-                        <property name="title">Easing Type</property>
-                        <property name="model">
-                          <object class="AdwEnumListModel" id="enum_model">
-                            <property name="enum-type">AdwEasing</property>
-                          </object>
-                        </property>
-                        <property name="expression">
-                          <lookup type="AdwEnumListItem" name="nick"/>
-                        </property>
-                      </object>
-                    </child>
-
-                    <child>
-                      <object class="AdwActionRow">
-                        <property name="title">Duration</property>
-
-                        <child type="suffix">
-                          <object class="GtkSpinButton" id="duration">
-                            <property name="valign">center</property>
-                            <property name="value">2</property>
-
-                            <property name="adjustment">
-                              <object class="GtkAdjustment">
-                                <property name="value">2</property>
-                                <property name="lower">2</property>
-                                <property name="upper">20</property>
-                                <property name="step-increment">1</property>
-                                <property name="page-increment">5</property>
-                              </object>
-                            </property>
+                        <child>
+                          <object class="GtkProgressBar" id="level_bar">
                           </object>
                         </child>
+
+                        <child>
+                          <object class="AdwPreferencesGroup">
+                            <child>
+                              <object class="AdwComboRow" id="animation_row">
+                                <property name="title">Easing Type</property>
+                                <property name="model">
+                                  <object class="AdwEnumListModel" id="enum_model">
+                                    <property name="enum-type">AdwEasing</property>
+                                  </object>
+                                </property>
+                                <property name="expression">
+                                  <lookup type="AdwEnumListItem" name="nick"/>
+                                </property>
+                              </object>
+                            </child>
+
+                            <child>
+                              <object class="AdwActionRow">
+                                <property name="title">Duration</property>
+
+                                <child type="suffix">
+                                  <object class="GtkSpinButton" id="duration">
+                                    <property name="valign">center</property>
+                                    <property name="value">2</property>
+
+                                    <property name="adjustment">
+                                      <object class="GtkAdjustment">
+                                        <property name="lower">2</property>
+                                        <property name="upper">20</property>
+                                        <property name="step-increment">1</property>
+                                        <property name="page-increment">5</property>
+                                      </object>
+                                    </property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+
+                        <child>
+                          <object class="GtkButton" id="run_button">
+                            <style>
+                              <class name="pill"/>
+                              <class name="suggested-action"/>
+                            </style>
+                            <property name="label">Run Test</property>
+                            <signal name="clicked" handler="on_run_button_clicked" swapped="no"/>
+                          </object>
+                        </child>
+
                       </object>
-                    </child>
+                    </property>
                   </object>
-                </child>
-
-                <child>
-                  <object class="GtkButton" id="run_button">
-                    <style>
-                      <class name="pill"/>
-                      <class name="suggested-action"/>
-                    </style>
-                    <property name="label">Run Test</property>
-                    <signal name="clicked" handler="on_run_button_clicked" swapped="no"/>
-                  </object>
-                </child>
-
-              </object>
+                </property>
+              </object>              
+            </property>
+            
+          </object>
+        </child>
+        
+        <child>
+          <object class="AdwViewStackPage" id="records_view">
+            <property name="title">Records</property>
+            <property name="name">records</property>
+            <property name="icon-name">application-x-executable-symbolic</property>
+            
+            <property name="child">
+              <object class="InternalAssesmentRecordList" id="record_list"></object>
             </property>
           </object>
-        </property>
+        </child>
+        
       </object>
     </child>
 

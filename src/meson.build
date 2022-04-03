@@ -1,7 +1,9 @@
 internal_assesment_sources = [
   'main.vala',
-  'Window.vala',
   'Application.vala',
+  
+  'Widgets/RecordList.vala',
+  'Widgets/Window.vala',
 ]
 
 internal_assesment_deps = [
