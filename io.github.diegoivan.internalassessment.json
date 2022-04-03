@@ -1,9 +1,9 @@
 {
-    "app-id" : "io.github.diegoivan.internalassesment",
+    "app-id" : "io.github.diegoivan.internalassessment",
     "runtime" : "org.gnome.Platform",
     "runtime-version" : "master",
     "sdk" : "org.gnome.Sdk",
-    "command" : "internal-assesment",
+    "command" : "internal-assessment",
     "sdk-extensions" : [
     "org.freedesktop.Sdk.Extension.vala"
   ],
@@ -32,7 +32,7 @@
     ],
     "modules" : [
         {
-            "name" : "internal-assesment",
+            "name" : "internal-assessment",
             "builddir" : true,
             "buildsystem" : "meson",
             "sources" : [

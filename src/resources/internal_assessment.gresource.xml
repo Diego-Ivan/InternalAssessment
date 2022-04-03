@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/io/github/diegoivan/internalassesment">
+  <gresource prefix="/io/github/diegoivan/internalassessment">
     <file>window.ui</file>
     <file>recordlist.ui</file>
     <file preprocess="xml-stripblanks">icons/penguin-alt-symbolic.svg</file>
   </gresource>
 
-  <gresource prefix="/io/github/diegoivan/internalassesment/icons/scalable/emblems">
+  <gresource prefix="/io/github/diegoivan/internalassessment/icons/scalable/emblems">
   </gresource>
 </gresources>

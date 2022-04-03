@@ -1,4 +1,4 @@
-application_id = 'io.github.diegoivan.internalassesment'
+application_id = 'io.github.diegoivan.internalassessment'
 
 scalable_dir = join_paths('hicolor', 'scalable', 'apps')
 install_data(

@@ -5,7 +5,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-namespace InternalAssesment {
+namespace InternalAssessment {
     public class RecordRow : Adw.ActionRow {
         private DateTime _date;
         public DateTime date {

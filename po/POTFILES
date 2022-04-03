@@ -1,6 +1,6 @@
-data/io.github.diegoivan.internalassesment.desktop.in
-data/io.github.diegoivan.internalassesment.appdata.xml.in
-data/io.github.diegoivan.internalassesment.gschema.xml
+data/io.github.diegoivan.internalassessment.desktop.in
+data/io.github.diegoivan.internalassessment.appdata.xml.in
+data/io.github.diegoivan.internalassessment.gschema.xml
 src/window.ui
 src/main.vala
 src/window.vala

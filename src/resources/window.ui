@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk" version="4.0"/>
-  <template class="InternalAssesmentWindow" parent="GtkApplicationWindow">
+  <template class="InternalAssessmentWindow" parent="GtkApplicationWindow">
     <property name="title">Internal Assessment</property>
     <property name="default-width">600</property>
     <property name="default-height">670</property>
@@ -120,7 +120,7 @@
                 <property name="icon-name">application-x-executable-symbolic</property>
 
                 <property name="child">
-                  <object class="InternalAssesmentRecordList" id="record_list"></object>
+                  <object class="InternalAssessmentRecordList" id="record_list"></object>
                 </property>
               </object>
             </child>

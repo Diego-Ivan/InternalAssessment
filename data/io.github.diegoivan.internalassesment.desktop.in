@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=internal-assesment
-Exec=internal-assesment
-Icon=io.github.diegoivan.internalassesment
-Terminal=false
-Type=Application
-Categories=GTK;
-StartupNotify=true

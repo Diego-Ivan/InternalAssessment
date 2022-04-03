@@ -6,8 +6,8 @@
  */
 
 
-namespace InternalAssesment {
-    [GtkTemplate (ui = "/io/github/diegoivan/internalassesment/window.ui")]
+namespace InternalAssessment {
+    [GtkTemplate (ui = "/io/github/diegoivan/internalassessment/window.ui")]
     public class Window : Gtk.ApplicationWindow {
         public Adw.TimedAnimation animation { get; private set; }
 

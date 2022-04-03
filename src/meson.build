@@ -1,4 +1,4 @@
-internal_assesment_sources = [
+internal_assessment_sources = [
   'main.vala',
   'Application.vala',
   
@@ -7,16 +7,16 @@ internal_assesment_sources = [
   'Widgets/Window.vala',
 ]
 
-internal_assesment_deps = [
+internal_assessment_deps = [
   dependency('libadwaita-1', version: '>= 1.0'),
   dependency('gtk4', version: '>= 4.5.0'),
 ]
 
-app_id = 'io.github.diegoivan.internalassesment'
+app_id = 'io.github.diegoivan.internalassessment'
 
 conf = configuration_data()
 conf.set_quoted('APP_ID', app_id)
-conf.set_quoted('G_LOG_DOMAIN', 'InternalAssesment')
+conf.set_quoted('G_LOG_DOMAIN', 'InternalAssessment')
 conf.set_quoted('VERSION', meson.project_version())
 conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 conf.set_quoted('DATADIR', join_paths(get_option('prefix'), get_option('datadir')))
@@ -31,20 +31,20 @@ add_project_arguments(
 
 gnome = import('gnome')
 
-resources_file = files('resources/internal_assesment.gresource.xml')
-internal_assesment_sources += gnome.compile_resources(app_id,
+resources_file = files('resources/internal_assessment.gresource.xml')
+internal_assessment_sources += gnome.compile_resources(app_id,
   resources_file,
-  c_name: 'internalassesment',
+  c_name: 'internalassessment',
   source_dir: 'resources',
 )
 
-executable('internal-assesment', internal_assesment_sources,
+executable('internal-assessment', internal_assessment_sources,
   vala_args: [
     meson.project_source_root() + '/src/vapi/Config.vapi',
     '--target-glib=2.50',
     '--gresources', resources_file,
     '--vapidir', meson.project_source_root() / 'vapi',
   ],
-  dependencies: internal_assesment_deps,
+  dependencies: internal_assessment_deps,
   install: true,
 )

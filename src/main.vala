@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace InternalAssesment {
+namespace InternalAssessment {
     public static int main (string[] args) {
         var app = new Application ();
         return app.run (args);

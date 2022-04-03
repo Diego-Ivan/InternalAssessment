@@ -1,6 +1,6 @@
 desktop_file = i18n.merge_file(
-  input: 'io.github.diegoivan.internalassesment.desktop.in',
-  output: 'io.github.diegoivan.internalassesment.desktop',
+  input: 'io.github.diegoivan.internalassessment.desktop.in',
+  output: 'io.github.diegoivan.internalassessment.desktop',
   type: 'desktop',
   po_dir: '../po',
   install: true,
@@ -15,8 +15,8 @@ if desktop_utils.found()
 endif
 
 appstream_file = i18n.merge_file(
-  input: 'io.github.diegoivan.internalassesment.appdata.xml.in',
-  output: 'io.github.diegoivan.internalassesment.appdata.xml',
+  input: 'io.github.diegoivan.internalassessment.appdata.xml.in',
+  output: 'io.github.diegoivan.internalassessment.appdata.xml',
   po_dir: '../po',
   install: true,
   install_dir: join_paths(get_option('datadir'), 'appdata')
@@ -29,7 +29,7 @@ if appstream_util.found()
   )
 endif
 
-install_data('io.github.diegoivan.internalassesment.gschema.xml',
+install_data('io.github.diegoivan.internalassessment.gschema.xml',
   install_dir: join_paths(get_option('datadir'), 'glib-2.0/schemas')
 )
 

@@ -1,1 +1,1 @@
-i18n.gettext('internal-assesment', preset: 'glib')
+i18n.gettext('internal-assessment', preset: 'glib')

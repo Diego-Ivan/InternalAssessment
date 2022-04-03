@@ -5,8 +5,8 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-namespace InternalAssesment {
-    [GtkTemplate (ui = "/io/github/diegoivan/internalassesment/recordlist.ui")]
+namespace InternalAssessment {
+    [GtkTemplate (ui = "/io/github/diegoivan/internalassessment/recordlist.ui")]
     public class RecordList : Adw.Bin {
         public string current_view {
             get {

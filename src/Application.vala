@@ -5,7 +5,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-namespace InternalAssesment {
+namespace InternalAssessment {
     public class Application : Adw.Application {
         private const ActionEntry[] action_entries = {
             { "about", on_about_action },
@@ -15,11 +15,11 @@ namespace InternalAssesment {
 
         public Application () {
             Object (
-                application_id: "io.github.diegoivan.internalassesment",
+                application_id: "io.github.diegoivan.internalassessment",
                 flags: ApplicationFlags.FLAGS_NONE
             );
 
-            resource_base_path = "/io/github/diegoivan/internalassesment";
+            resource_base_path = "/io/github/diegoivan/internalassessment";
         }
 
         construct {
