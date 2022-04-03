@@ -1,4 +1,4 @@
-/* application.vala
+/* Application.vala
  *
  * Copyright 2022 Diego Iván <diegoivan.mae@gmail.com>
  *

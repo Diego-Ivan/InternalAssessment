@@ -23,6 +23,8 @@ namespace InternalAssesment {
         private unowned RecordList record_list;
         [GtkChild]
         private unowned Adw.ViewStackPage records_view;
+        [GtkChild]
+        private unowned Adw.ToastOverlay toast_overlay;
 
         public Window (Gtk.Application app) {
             Object (application: app);
@@ -63,6 +65,10 @@ namespace InternalAssesment {
 
             var date = new DateTime.now_local ();
             record_list.append_record (date, v);
+        }
+
+        internal void send_toast (string message) {
+            toast_overlay.add_toast (new Adw.Toast (message));
         }
     }
 }
