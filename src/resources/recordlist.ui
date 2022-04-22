@@ -70,11 +70,25 @@
                         </child>
 
                         <child>
-                          <object class="GtkListBox" id="listbox">
-                            <property name="valign">start</property>
+                          <object class="GtkListView" id="listview">
                             <style>
-                              <class name="boxed-list"/>
+                              <class name="background"/>
                             </style>
+                            <property name="model">
+                              <object class="GtkNoSelection">
+                                <property name="model">
+                                  <object class="GListStore" id="liststore">
+                                    <property name="item_type">InternalAssessmentRecordObject</property>
+                                  </object>
+                                </property>
+                              </object>
+                            </property>
+
+                            <property name="factory">
+                              <object class="GtkSignalListItemFactory" id="factory">
+                              </object>
+                            </property>
+
                           </object>
                         </child>
 

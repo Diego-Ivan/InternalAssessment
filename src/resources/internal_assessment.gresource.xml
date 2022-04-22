@@ -3,6 +3,7 @@
   <gresource prefix="/io/github/diegoivan/internalassessment">
     <file>window.ui</file>
     <file>recordlist.ui</file>
+    <file>recordrow.ui</file>
     <file preprocess="xml-stripblanks">icons/penguin-alt-symbolic.svg</file>
   </gresource>
 

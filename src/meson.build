@@ -2,6 +2,8 @@ internal_assessment_sources = [
   'main.vala',
   'Application.vala',
   
+  'Services/RecordObject.vala',
+
   'Widgets/RecordList.vala',
   'Widgets/RecordRow.vala',
   'Widgets/Window.vala',

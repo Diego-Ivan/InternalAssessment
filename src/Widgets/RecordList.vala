@@ -18,7 +18,12 @@ namespace InternalAssessment {
         }
 
         [GtkChild]
-        private unowned Gtk.ListBox listbox;
+        private unowned ListStore liststore;
+        [GtkChild]
+        private unowned Gtk.SignalListItemFactory factory;
+        [GtkChild]
+        private unowned Gtk.ListView listview;
+
         [GtkChild]
         private unowned Gtk.Stack view_stack;
         private Gtk.FileChooserNative? filechooser;
@@ -27,6 +32,10 @@ namespace InternalAssessment {
             { "delete-all", clear_list },
             { "generate-image", generate_image }
         };
+
+        static construct {
+            typeof(RecordObject).ensure ();
+        }
 
         construct {
             filechooser = new Gtk.FileChooserNative (null,
@@ -40,20 +49,25 @@ namespace InternalAssessment {
             var action_group = new SimpleActionGroup ();
             action_group.add_action_entries (ENTRIES, this);
             insert_action_group ("recordlist", action_group);
+
+            factory.bind.connect ((o) => {
+                o.child = new RecordRow ((RecordObject) o.item);
+            });
+            listview.remove_css_class ("view");
+            listview.add_css_class ("background");
         }
 
-        public void append_record (DateTime date, double record) {
-            var row = new RecordRow (date, record);
-            listbox.append (row);
+        public void append_record (TimeSpan ts, double v) {
+            var o = new RecordObject () {
+                timespan = ts,
+                recorded_value = v
+            };
+            liststore.append (o);
         }
 
         public void clear_list () {
-            Gtk.ListBoxRow? row = listbox.get_row_at_index (0);
-            while (row != null) {
-                listbox.remove (row);
-                row.dispose ();
-                row = listbox.get_row_at_index (0);
-            }
+            liststore.remove_all ();
+            view_stack.set_visible_child_name ("empty");
         }
 
         [GtkCallback]
@@ -71,19 +85,15 @@ namespace InternalAssessment {
         }
 
         private async void save_as_csv () {
-            string records = "datetime,value\n";
-            File file = filechooser.get_file ();
-
-            int i = 0;
-            RecordRow row = listbox.get_row_at_index (0) as RecordRow;
-            while (row != null) {
-                records += "\"%s\",\"%f\"\n".printf (row.formatted_date, row.recorded_value);
-                i++;
-                row = listbox.get_row_at_y (i) as RecordRow;
+            string format = "timespan,value";
+            for (int i = 0; i < liststore.get_n_items (); i++) {
+                RecordObject o = (RecordObject) liststore.get_object (i);
+                format += "\n\"%s\",\"%s\"".printf (o.timespan.to_string (), o.recorded_value.to_string ());
             }
 
             try {
-                FileUtils.set_contents (file.get_path (), records);
+                string path = filechooser.get_file ().get_path ();
+                FileUtils.set_contents (path, format);
             }
             catch (Error e) {
                 critical (e.message);

@@ -6,44 +6,29 @@
  */
 
 namespace InternalAssessment {
-    public class RecordRow : Adw.ActionRow {
-        private DateTime _date;
-        public DateTime date {
-            get {
-                return _date;
-            }
+    [GtkTemplate (ui = "/io/github/diegoivan/internalassessment/recordrow.ui")]
+    public class RecordRow : Adw.Bin {
+        [GtkChild]
+        private unowned Gtk.Label value_label;
+        [GtkChild]
+        private unowned Gtk.Label timespan_label;
+
+        public TimeSpan timespan {
             set {
-                _date = value;
-                subtitle = _date.format ("%H:%M:%S:%f");
+                timespan_label.label = value.to_string ();
             }
         }
-
-        public string formatted_date {
-            get {
-                return subtitle;
-            }
-        }
-
-        private double _recorded_value;
         public double recorded_value {
-            get {
-                return _recorded_value;
-            }
             set {
-                _recorded_value = value;
-                title = value.to_string ();
+                value_label.label = value.to_string ();
             }
         }
 
-        public RecordRow (DateTime d, double v) {
+        public RecordRow (RecordObject o) {
             Object (
-                date: d,
-                recorded_value: v
+                timespan: o.timespan,
+                recorded_value: o.recorded_value
             );
-        }
-
-        construct {
-            selectable = false;
         }
     }
 }

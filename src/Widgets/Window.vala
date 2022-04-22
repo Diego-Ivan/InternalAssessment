@@ -26,6 +26,8 @@ namespace InternalAssessment {
         [GtkChild]
         private unowned Adw.ToastOverlay toast_overlay;
 
+        private DateTime start;
+
         public Window (Gtk.Application app) {
             Object (application: app);
         }
@@ -51,6 +53,7 @@ namespace InternalAssessment {
             animation.easing = (Adw.Easing) item.value;
             animation.duration = (uint) duration.value * 1000;
 
+            start = new DateTime.now_local ();
             animation.play ();
         }
 
@@ -64,7 +67,9 @@ namespace InternalAssessment {
             level_bar.fraction = v;
 
             var date = new DateTime.now_local ();
-            record_list.append_record (date, v);
+            TimeSpan dif = date.difference (start);
+
+            record_list.append_record (dif, v);
         }
 
         internal void send_toast (string message) {
